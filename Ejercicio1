@@ -1,0 +1,77 @@
+proveedores = ["Juan Tarazona", "Juan Macias", "Alejandra Gomez"]
+ciudad = ["Bogota", "Bucaramanga", "Medellin"]
+nArticulos = [140, 250, 90]
+infoArticulos = ["ID 01, Xbox Series S, 1500000 COP", "ID 02, Iphone 13 , 3500000 COP", "ID 03, Control "
+                                                                                          "Xbox Series s/x, 250000 COP"]
+
+selector1 = (input("Introduce el nombre del proveedor: "))
+if selector1 in proveedores:
+    busqueda = proveedores.index(selector1)
+    print(proveedores[busqueda], "\nCiudad: ", ciudad[busqueda], "\nNumero de articulos: ",
+          nArticulos[busqueda],
+          "\nInformacion de los articulos: ", infoArticulos[busqueda])
+
+elif selector1 == "":
+    print("No sé especifico un nombre")
+
+else:
+    print("El proveedor no se encontro dentro de la lista de proveedores")
+
+selector2 = (input("Presione (l) si desea cambiar el domicilio de un proveedor o (Enter) para omitir: "))
+if selector2 == "l":
+    selector3 = (input("Introduce el nombre del proveedor cambiara de domicilio: "))
+    if selector3 in proveedores:
+        busqueda2 = proveedores.index(selector3)
+        ndomi = input("Introduce el nuevo domicilio del proveedor: ")
+        ciudad[busqueda2] = ndomi
+        print("La lista de ciudades se ha actualizado: ", ciudad)
+    else:
+        print("El proveedor no se encuentra de la lista de proveedores")
+else:
+    print("El cambio de ciudad ha sido omitido")
+
+selector4 = (input("Presione (b) si desea sumar articulos a la lista o (Enter) para omitir: "))
+if selector4 == "b":
+    selector5 = (input("Introduce el nombre del proveedor al que se le agregaran articulos: "))
+    if selector5 in proveedores:
+        busqueda3 = proveedores.index(selector5)
+        add = int(input("Introduce la cantidad de articulos a agregar: "))
+        nArticulos[busqueda3] += add
+        print("La lista de articulos se ha actualizado: ", nArticulos)
+    else:
+        print("El proveedor se envuentra en la lista de proveedores")
+else:
+    print("El cambio de articuloss ha sido omitido")
+
+selector6 = (input("Presione (x) si desea eliminar articulos a la lista o (Enter) para omitir: "))
+if selector6 == "x":
+    selector7 = (input("Introduce el nombre del proveedor al que se le eliminaran articulos: "))
+    if selector7 in proveedores:
+        busqueda4 = proveedores.index(selector7)
+        elim = int(input("Introduce la cantidad de articulos a eliminar: "))
+        nArticulos[busqueda4] -= elim
+        print("La lista de articulos se ha actualizado: ", nArticulos)
+    else:
+        print("El proveedor no se encontro en la lista de proveedores")
+else:
+    print("El cambio de articulos ha sido omitido")
+
+selector8 = (input("Presione (m) si desea agregar un proveedor a la lista o (Enter) para omitir: "))
+if selector8 == "m":
+    nupro = input("Introduce el nombre del nuevo proveedor: ")
+    nciud = input("Introduce la ciudad del nuevo proveedor: ")
+    nprov = int(input("Introduce el numero de articulos que provee: "))
+    proveedores.append(nupro)
+    ciudad.append(nciud)
+    nArticulos.append(nprov)
+    print("La lista de proveedores se ha actualizado: ", proveedores, ciudad, nArticulos)
+else:
+    print("El cambio de proveedores ha sido omitido")
+
+selector9 = (input("Presione (p) si desea eliminar un proveedor a la lista o (Enter) para omitir: "))
+if selector9 == "p":
+    eliminar = input("Introduce el nombre del proveedor a eliminar: ")
+    proveedores.remove(eliminar)
+    print("La lista de proveedores se ha actualizado: ", proveedores)
+else:
+    print("El cambio de proveedores ha sido omitido")
